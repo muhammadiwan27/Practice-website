@@ -1,0 +1,47 @@
+.splash-text {
+    font-size: 6em;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.center {
+    margin-top: 35%;
+    border: none;
+    font-size: large
+    
+}
+
+.active {
+    background-color: #ecec17;
+    color: rgb(225, 235, 225);
+}
+
+
+.switch1 {
+    display: flex;
+}
+
+.switch2 {
+    display: none;
+}
+
+@media only screen and (max-width: 600px) {
+    .splash-text {
+        margin-top: 50vh;
+        font-size: 3em;
+    }
+    .row {
+        flex-direction: column;
+    }
+    
+    
+    .column {
+        width: 100%;
+        flex-direction: column;
+    }
+    .switch1 {
+        display: none;
+    }
+    .switch2 {
+        display: contents;
+    }
+}
