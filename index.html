@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="base.css">
+    <link rel="stylesheet" href="index.css">
+    <title>Practice Website</title>
+</head>
+
+<body>
+
+    <nav>
+        <ul class="navbar">
+            <a href="index.html"><img class="navicon" src="gambar/revou logo.png" alt="revoU-icon" /></a>
+            <a href="index.html" class="navtext">IT Community</a>
+            <li class="navitem"><a href="message us.html">Message Us</a></li>
+            <li class="navitem"><a href="achievement.html">Achievement</a></li>
+            <li class="navitem"><a href="profile.html">Our Profile</a></li>
+            <li class="navitem active"><a href="index.html">Home</a></li>
+        </ul>
+    </nav>
+  
+    <section id="header">
+        <div class="container">
+            <div class="header">
+                <h2>HI <span id="nama-header">User</span>, Welcome To Website</h2>
+                <h5>INI ADALAH WEBSITE LATIHAN PERTAMA</h5>
+            </div>
+        </div>
+    </section>
+ 
+    <section id="top-banner">
+        <img class="banner img-slideshow" src="gambar/index/banner revou.png" alt="revoU-banner" />
+        <img class="banner img-slideshow" src="gambar/index/banner 2.png" alt="revoU-banner" />
+        <img class="banner img-slideshow" src="gambar/index/banner 3.png" alt="revoU-banner" />
+        <button class="btn-prev" onclick="plusDivs(-1)">Previous</button>
+        <button class="btn-next" onclick="plusDivs(1)">Next</button>
+        <hr/>
+    </section>
+ 
+    <section id="facility">
+        <div class="container">
+            <h1>Our Facilitation</h1>
+            <ul class="facil">
+                <div class="facil-block">
+                    <img class="facil-img" src="gambar/index/teacher.png" />
+                    <span class="facil-desc">Professional Teacher</span>
+                </div>
+                <div class="facil-block">
+                    <img class="facil-img" src="gambar/index/field.png" />
+                    <span class="facil-desc">Sport Field</span>
+                </div>
+                <div class="facil-block">
+                    <img class="facil-img" src="gambar/index/classroom.png" />
+                    <span class="facil-desc">Classroom</span>
+                </div>
+            </ul>
+        </div>
+        <hr/>
+    </section>
+ 
+    <section id="message-us">
+        <div class="container">
+            <h1>Message Us</h1>
+            <div class="row row-top">
+                <div class="column">
+                    <div class="message-form">
+                        <form id="msg-form" name="msg-form" onsubmit="return validateForm()">
+                            <div class="row">
+                                <div class="column-l">
+                                    <label class="label-l" for="nama">Nama</label><br>
+                                    <label class="label-l" for="tanggal">Tanggal Lahir</label><br>
+                                    <label class="label-l" for="kelamin">Jenis Kelamin</label><br>
+                                    <label class="label-l" for="pesan">Pesan</label><br>
+                                </div>
+                                <div class="column-mid">
+                                    <b>: </b><br/>
+                                    <b>: </b><br/>
+                                    <b>: </b><br/>
+                                    <b>: </b>
+                                </div>
+                                <div class="column-r">
+                                    <input class="label-r" type="text" id="nama" name="nama" placeholder="Nama"><br>
+                                    <input class="label-rd" type="date" id="tanggal" placeholder="dd-mm-yyyy" name="tanggal"><br>
+                                    <input class="radio-k" type="radio" id="laki" name="kelamin" value="Laki-Laki">
+                                    <label for="laki">Laki-Laki</label>
+                                    <input class="radio-k" type="radio" id="perempuan" name="kelamin" value="Perempuan">
+                                    <label for="perempuan">Perempuan</label><br>
+                                    <input class="label-p" type="text" id="pesan" name="pesan" placeholder="Pesan"><br>
+                                </div>
+                            </div>
+                            <input class="btn-submit" type="submit" value="Submit">
+                        </form>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="message-show">
+                        <p>
+                            <b>Current time :</b> <span id="sender-time"></span>
+                            <br/>
+                            <br/>
+                            <b>Nama :</b> <span id="sender-nama"></span>
+                            <br/>
+                            <b>Tanggal Lahir :</b> <span id="sender-tanggal"></span>
+                            <br/>
+                            <b>Jenis Kelamin :</b> <span id="sender-kelamin"></span>
+                            <br/>
+                            <b>Pesan :</b> <span id="sender-pesan"></span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr/>
+    </section>
+
+   
+</body>
+
+<script>
+    var user = prompt("Masukkan Nama Anda");
+    document.getElementById("nama-header").innerText = user;
+
+    function validateForm() {
+        var today = new Date();
+        var nama = document.forms['msg-form']['nama'].value;
+        var tanggal = document.forms['msg-form']['tanggal'].value;
+        var kelamin = document.forms['msg-form']['kelamin'].value;
+        var pesan = document.forms['msg-form']['pesan'].value;
+
+        var tanggalArr = tanggal.split("-");
+        var newTanggal = tanggalArr[2] + "-" + tanggalArr[1] + "-" + tanggalArr[0];
+
+        var newToday = today.toString().slice(0, 33);
+
+        document.getElementById("sender-time").innerText = newToday;
+        document.getElementById("sender-nama").innerHTML = nama;
+        document.getElementById("sender-tanggal").innerHTML = newTanggal;
+        document.getElementById("sender-kelamin").innerHTML = kelamin;
+        document.getElementById("sender-pesan").innerHTML = pesan;
+        return false;
+    }
+
+    var slideIndex = 1;
+    showDivs(slideIndex);
+
+    function plusDivs(n) {
+        showDivs(slideIndex += n);
+    }
+
+    function showDivs(n) {
+        var i;
+        var imgList = document.getElementsByClassName("img-slideshow");
+        if (n > imgList.length) {
+            slideIndex = 1
+        }
+        if (n < 1) {
+            slideIndex = imgList.length
+        }
+        for (i = 0; i < imgList.length; i++) {
+            imgList[i].style.display = "none";
+        }
+        imgList[slideIndex - 1].style.display = "block";
+    }
+
+
+</script>
+</html>
